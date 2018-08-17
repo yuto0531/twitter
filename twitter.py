@@ -16,15 +16,15 @@ while True:
 
     for i in range(tweets_length):
 
-        tweet_name = tweets["statuses"][i]["user"]["name"]
-        tweet_screen_name = tweets["statuses"][i]["user"]["screen_name"]
-        tweet_text = tweets["statuses"][i]["text"]
-        tweet_id = tweets["statuses"][i]["id"]
-        print("name:{}\nscreen_name:{}\ntext:{}\nid:{}\n".format(tweet_name,tweet_screen_name,tweet_text,tweet_id))
+        name = tweets["statuses"][i]["user"]["name"]
+        screen_name = tweets["statuses"][i]["user"]["screen_name"]
+        text = tweets["statuses"][i]["text"]
+        user_id = tweets["statuses"][i]["id"]
+        print("name:{}\nscreen_name:{}\ntext:{}\nid:{}\n".format(name,screen_name,text,user_id))
 
         try:
-            twitter.create_favorite(id=tweet_id)
-            twitter.retweet(id=tweet_id)
+            twitter.create_favorite(id=user_id)
+            twitter.retweet(id=user_id)
             time.sleep(10)
         except:
             print("失敗しました")
